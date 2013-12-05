@@ -1,0 +1,26 @@
+<h1>Listing product parts</h1>
+
+<table>
+  <tr>
+    <th>Partnumber</th>
+    <th>Desc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @parts.each do |part| %>
+  <tr>
+    <td><%= part.partnumber %></td>
+    <td><%= part.partdesc %></td>
+    <td><%= link_to 'Show', product_part_path(@product, part) %></td>
+    <td><%= link_to 'Edit', edit_product_part_path(@product, part) %></td>
+    <td><%= link_to 'Destroy', [@product,@part], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product Part', new_product_part_path(@product) %>
+<%= link_to 'Back', products_path %>
